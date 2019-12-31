@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dimen16dp"
+    android:background="@drawable/dialog_rounded_white">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/dimen64dp"
+        android:layout_height="@dimen/dimen64dp"
+        android:src="@drawable/ic_cloud_queue" />
+
+    <RelativeLayout
+        android:id="@+id/layout_cloud"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen64dp"
+        android:layout_marginLeft="@dimen/dimen8dp"
+        android:layout_toRightOf="@id/iv_icon"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_location"
+            android:textSize="@dimen/dimen18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_weather_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:text="@string/cloudy"
+            android:textSize="@dimen/dimen16sp" />
+
+        <TextView
+            android:id="@+id/tv_main_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="@dimen/dimen8dp"
+            android:layout_toRightOf="@id/tv_weather_desc"
+            android:background="@drawable/background_round_blue"
+            android:paddingLeft="@dimen/dimen8dp"
+            android:paddingRight="@dimen/dimen8dp"
+            android:text="20"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimen16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_cloud"
+        android:layout_marginTop="@dimen/dimen8dp">
+
+        <TextView
+            android:id="@+id/tv_main_temp_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temperature minimal 20"
+            android:textSize="@dimen/dimen16sp" />
+
+        <TextView
+            android:id="@+id/tv_main_temp_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_main_temp_min"
+            android:layout_marginTop="@dimen/dimen4dp"
+            android:text="Temperature minimal 20"
+            android:textSize="@dimen/dimen16sp" />
+
+        <TextView
+            android:id="@+id/tv_wind_speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_main_temp_max"
+            android:layout_marginTop="@dimen/dimen4dp"
+            android:text="@string/wind"
+            android:textSize="@dimen/dimen16sp" />
+
+        <TextView
+            android:id="@+id/tv_humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_wind_speed"
+            android:layout_marginTop="@dimen/dimen4dp"
+            android:text="@string/humidity"
+            android:textSize="@dimen/dimen16sp" />
+
+        <TextView
+            android:id="@+id/tv_pressure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_humidity"
+            android:layout_marginTop="@dimen/dimen4dp"
+            android:text="@string/pressure"
+            android:textSize="@dimen/dimen16sp" />
+
+        <TextView
+            android:id="@+id/tv_coord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_pressure"
+            android:layout_marginTop="@dimen/dimen4dp"
+            android:text="@string/coord"
+            android:textSize="@dimen/dimen16sp" />
+
+        <Button
+            android:layout_marginTop="@dimen/dimen32dp"
+            android:id="@+id/btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_coord"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/background_round_blue"
+            android:text="Ok"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</RelativeLayout>

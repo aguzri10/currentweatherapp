@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dimen4dp"
                 android:layout_toRightOf="@id/tv_waether_desc"
-                android:background="@color/colorBackBlue"
+                android:background="@drawable/background_round_blue"
                 android:paddingLeft="@dimen/dimen8dp"
                 android:paddingTop="@dimen/dimen2dp"
                 android:paddingRight="@dimen/dimen8dp"

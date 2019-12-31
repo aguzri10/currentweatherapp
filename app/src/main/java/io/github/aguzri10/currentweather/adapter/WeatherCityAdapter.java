@@ -99,6 +99,6 @@ public class WeatherCityAdapter extends RecyclerView.Adapter<WeatherCityAdapter.
     }
 
     public interface ItemClickListener {
-        public void onClick(View view, int i);
+        void onClick(View view, int i);
     }
 }

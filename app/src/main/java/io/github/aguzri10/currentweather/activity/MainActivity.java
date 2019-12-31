@@ -1,6 +1,7 @@
 package io.github.aguzri10.currentweather.activity;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -21,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefresh;
     private SearchView searchView;
+    private MenuItem searchv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,23 +207,36 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
         inflater.inflate(R.menu.main_menu, menu);
         MenuItem searchv = menu.findItem(R.id.search);
         searchView = (SearchView) MenuItemCompat.getActionView(searchv);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                String resultSerach = s;
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                intent.putExtra("resultSearch", resultSerach);
-                startActivity(intent);
-                searchView.clearFocus();
-                return true;
-            }
+        return true;
+    }
 
-            @Override
-            public boolean onQueryTextChange(String s) {
-                return false;
-            }
-        });
-        return super.onCreateOptionsMenu(menu);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.search:
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String s) {
+                        String resultSerach = s;
+                        Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                        intent.putExtra("resultSearch", resultSerach);
+                        startActivity(intent);
+                        searchView.clearFocus();
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String s) {
+                        return false;
+                    }
+                });
+                return true;
+            case R.id.location:
+                Toast.makeText(this, "This is user location", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
