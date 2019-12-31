@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv_item"
+    android:layout_marginTop="@dimen/dimen4dp"
+    android:layout_marginLeft="@dimen/dimen8dp"
+    android:layout_marginRight="@dimen/dimen8dp"
+    android:layout_marginBottom="@dimen/dimen4dp"
+    app:cardBackgroundColor="@color/colorWhite">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen8dp">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/dimen64dp"
+            android:layout_height="@dimen/dimen64dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_cloud_queue" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen8dp"
+            android:layout_toRightOf="@id/iv_icon">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/city_name"
+                android:textSize="@dimen/dimen18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen2dp"
+                android:layout_toRightOf="@id/tv_name"
+                android:text="ID"
+                android:textSize="@dimen/dimen18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_waether_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen4dp"
+                android:layout_toRightOf="@id/tv_country"
+                android:text="@string/main"
+                android:textSize="@dimen/dimen18sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/tv_main_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen4dp"
+                android:layout_toRightOf="@id/tv_waether_desc"
+                android:background="@color/colorBackBlue"
+                android:paddingLeft="@dimen/dimen8dp"
+                android:paddingTop="@dimen/dimen2dp"
+                android:paddingRight="@dimen/dimen8dp"
+                android:paddingBottom="@dimen/dimen2dp"
+                android:text="25"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimen16sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_name">
+
+                <TextView
+                    android:id="@+id/tv_main_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen2dp"
+                    android:text="Temperatur form 22 to 26, wind 15 m/s, clouds 40%, 1009 hpa"
+                    android:textSize="@dimen/dimen14sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

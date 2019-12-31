@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Current Weather</string>
+    <string name="no_location_detected">
+        No location detected. Make sure location is enabled on the device.
+    </string>
+    <string name="permission_rationale">
+        Location permission is needed for core functionality
+    </string>
+    <string name="permission_denied_explanation">
+        Permission was denied, but is needed for core functionality
+    </string>
+    <string name="setting">Setting</string>
+    <string name="your_location">Your Location</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="name_location">Name Location</string>
+    <string name="default_tanggal">Default Tanggal</string>
+    <string name="default_suhu">20</string>
+    <string name="cloudy">Cloudy</string>
+    <string name="city_name">City Name,</string>
+    <string name="main">mist</string>
+    <string name="feels_like">Feels like</string>
+    <string name="wind">Wind</string>
+    <string name="pressure">Pressure</string>
+    <string name="information">Information</string>
+    <string name="coord">Coord</string>
+    <string name="app_info">App Info</string>
+</resources>
