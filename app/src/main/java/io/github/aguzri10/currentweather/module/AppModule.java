@@ -8,7 +8,7 @@ public class AppModule {
     private static final String BASE_URL = "https://openweathermap.org/data/2.5/";
     public static final String URL_IMAGE = "http://openweathermap.org/img/wn/";
     public static final String URL_IMAGE_EX = "@2x.png";
-    public static final String appid = "b6907d289e10d714a6e88b30761fae22";
+    public static final String appid = "<YOUR_APPID_OPENWEATHERMAP>";
     private static Retrofit retrofit = null;
 
     public AppModule(Retrofit retrofit) {
