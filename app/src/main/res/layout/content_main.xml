@@ -64,10 +64,10 @@
             </LinearLayout>
 
             <TextView
-                android:layout_marginLeft="@dimen/dimen8dp"
                 android:id="@+id/tv_temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen8dp"
                 android:layout_toRightOf="@id/layout_cloud"
                 android:text="@string/default_suhu"
                 android:textColor="@color/colorWhite"
