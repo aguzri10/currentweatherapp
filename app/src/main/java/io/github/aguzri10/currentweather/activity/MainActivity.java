@@ -137,8 +137,6 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
                 ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.ACCESS_COARSE_LOCATION);
 
-        // Provide an additional rationale to the user. This would happen if the user denied the
-        // request previously, but didn't check the "Don't ask again" checkbox.
         if (shouldProvideRationale) {
             Log.i(TAG, "Displaying permission rationale to provide additional context.");
 
@@ -146,16 +144,12 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            // Request permission
                             startLocationPermissionRequest();
                         }
                     });
 
         } else {
             Log.i(TAG, "Requesting permission");
-            // Request permission. It's possible this can be auto answered if device policy
-            // sets the permission in a given state or the user denied the permission
-            // previously and checked "Never ask again".
             startLocationPermissionRequest();
         }
     }
@@ -166,29 +160,14 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
         Log.i(TAG, "onRequestPermissionResult");
         if (requestCode == REQUEST_PERMISSIONS_REQUEST_CODE) {
             if (grantResults.length <= 0) {
-                // If user interaction was interrupted, the permission request is cancelled and you
-                // receive empty arrays.
                 Log.i(TAG, "User interaction was cancelled.");
             } else if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted.
                 getWeatherWithCoord();
             } else {
-                // Permission denied.
-
-                // Notify the user via a SnackBar that they have rejected a core permission for the
-                // app, which makes the Activity useless. In a real app, core permissions would
-                // typically be best requested during a welcome-screen flow.
-
-                // Additionally, it is important to remember that a permission might have been
-                // rejected without asking the user for permission (device policy or "Never ask
-                // again" prompts). Therefore, a user interface affordance is typically implemented
-                // when permissions are denied. Otherwise, your app could appear unresponsive to
-                // touches or interactions which have required permissions.
                 showSnackbar(R.string.permission_denied_explanation, R.string.setting,
                         new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                // Build intent that displays the App settings screen.
                                 Intent intent = new Intent();
                                 intent.setAction(
                                         Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
@@ -232,15 +211,6 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
                         return false;
                     }
                 });
-                return true;
-            case R.id.location:
-                double lat = latitude;
-                double lon = longitude;
-
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                intent.putExtra("lat", lat);
-                intent.putExtra("lon", lon);
-                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

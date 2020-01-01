@@ -77,8 +77,8 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
 
         viewHolder.tvFeelsLike.setText(String.valueOf(responseModels.getMain().getFeelsLike()) + celcius);
         viewHolder.tvWindSpeed.setText(String.valueOf(responseModels.getWind().getSpeed()) + " m/s");
-        viewHolder.tvHumidity.setText(String.valueOf(responseModels.getMain().getHumidity() + "%"));
-        viewHolder.tvPressure.setText(String.valueOf(responseModels.getMain().getPressure() + " in"));
+        viewHolder.tvHumidity.setText(String.valueOf(responseModels.getMain().getHumidity() + " %"));
+        viewHolder.tvPressure.setText(String.valueOf(responseModels.getMain().getPressure() + " hpa"));
 
         double lat = responseModels.getCoord().getLat();
         double lon = responseModels.getCoord().getLon();
