@@ -20,10 +20,11 @@ import io.github.aguzri10.currentweather.R;
 import io.github.aguzri10.currentweather.model.ResponseModel;
 import io.github.aguzri10.currentweather.model.Weather;
 
+import static io.github.aguzri10.currentweather.module.AppModule.URL_IMAGE;
+import static io.github.aguzri10.currentweather.module.AppModule.URL_IMAGE_EX;
+
 public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHolder> {
 
-    private static final String URL_IMAGE = "http://openweathermap.org/img/wn/";
-    private static final String URL_IMAGE_EX = "@2x.png";
     private Context context;
     private ResponseModel responseModels;
     private List<Weather> weathers;
@@ -44,7 +45,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
 
-        char temperature = 0x00B0;
+        char derajat = 0x00B0;
         String celcius = " \u2103";
 
         Weather weather = weathers.get(i);
@@ -67,7 +68,12 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
         viewHolder.tvDate.setText("" + dayName + ", " + currentDate + " at " + currentTime);
 
         viewHolder.tvWeatherMain.setText(weather.getMain());
-        viewHolder.tvTemp.setText(String.valueOf(responseModels.getMain().getTemp()) + temperature);
+
+        String temperate = String.valueOf(responseModels.getMain().getTemp());
+        String[] spltTemp = temperate.split("\\.");
+        String left = spltTemp[0];
+
+        viewHolder.tvTemp.setText( left + derajat);
 
         viewHolder.tvFeelsLike.setText(String.valueOf(responseModels.getMain().getFeelsLike()) + celcius);
         viewHolder.tvWindSpeed.setText(String.valueOf(responseModels.getWind().getSpeed()) + " m/s");

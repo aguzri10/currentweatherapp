@@ -64,13 +64,14 @@
             </LinearLayout>
 
             <TextView
+                android:layout_marginLeft="@dimen/dimen8dp"
                 android:id="@+id/tv_temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/layout_cloud"
                 android:text="@string/default_suhu"
                 android:textColor="@color/colorWhite"
-                android:textSize="100sp" />
+                android:textSize="112sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -78,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/layout_inti"
-            android:layout_marginTop="@dimen/dimen32dp">
+            android:layout_marginTop="@dimen/dimen64dp">
 
             <RelativeLayout
                 android:id="@+id/layout_detail_label"

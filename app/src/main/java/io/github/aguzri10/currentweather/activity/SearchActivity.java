@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -25,12 +25,13 @@ import io.github.aguzri10.currentweather.model.Weather;
 import io.github.aguzri10.currentweather.presenter.WeatherPresenter;
 import io.github.aguzri10.currentweather.view.WeatherView;
 
+import static io.github.aguzri10.currentweather.module.AppModule.URL_IMAGE;
+import static io.github.aguzri10.currentweather.module.AppModule.URL_IMAGE_EX;
+import static io.github.aguzri10.currentweather.module.AppModule.appid;
+
 public class SearchActivity extends AppCompatActivity implements WeatherView {
 
     private ProgressBar progressBar;
-    private static final String URL_IMAGE = "http://openweathermap.org/img/wn/";
-    private static final String URL_IMAGE_EX = "@2x.png";
-    private static final String appid = "b6907d289e10d714a6e88b30761fae22";
     private ResponseModel responseModels;
     private List<Weather> weather;
     private WeatherCityAdapter adapter;
@@ -46,10 +47,10 @@ public class SearchActivity extends AppCompatActivity implements WeatherView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        getSupportActionBar().setElevation(0);
-
         progressBar = findViewById(R.id.progress_bar);
         recyclerView = findViewById(R.id.recycler_view);
+
+        getSupportActionBar().setElevation(0);
 
         Intent intent = getIntent();
         String isiSearch = intent.getStringExtra("resultSearch");

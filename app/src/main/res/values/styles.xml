@@ -6,6 +6,14 @@
         <item name="colorPrimary">@color/colorBackBlue</item>
         <item name="colorPrimaryDark">@color/colorBackBlue</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+    </style>
+
+    <style name="NTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorBackBlue</item>
+        <item name="colorPrimaryDark">@color/colorBackBlue</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
     
     <style name="CustomDialog" parent="Theme.AppCompat.Light.Dialog">

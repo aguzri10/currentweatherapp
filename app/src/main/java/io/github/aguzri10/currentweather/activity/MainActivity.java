@@ -1,7 +1,6 @@
 package io.github.aguzri10.currentweather.activity;
 
 import android.Manifest;
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -22,8 +21,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -41,9 +38,10 @@ import io.github.aguzri10.currentweather.model.Weather;
 import io.github.aguzri10.currentweather.presenter.WeatherPresenter;
 import io.github.aguzri10.currentweather.view.WeatherView;
 
+import static io.github.aguzri10.currentweather.module.AppModule.appid;
+
 public class MainActivity extends AppCompatActivity implements WeatherView {
 
-    private static final String appid = "b6907d289e10d714a6e88b30761fae22";
     private static final String TAG = MainActivity.class.getSimpleName();
     private double latitude, longitude;
     private ResponseModel responseModels;
@@ -85,16 +83,20 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
                             mLastLocation = task.getResult();
                             latitude = mLastLocation.getLatitude();
                             longitude = mLastLocation.getLongitude();
-                            recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-                            preesenter = new WeatherPresenter(MainActivity.this);
-                            preesenter.getWeatherByCoord(latitude, longitude, appid);
 
-                            swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                                @Override
-                                public void onRefresh() {
-                                    preesenter.getWeatherByCoord(latitude, longitude, appid);
-                                }
-                            });
+                            if (latitude == 0 && longitude == 0) {
+                                Toast.makeText(MainActivity.this, "Please check your connection or your location !", Toast.LENGTH_SHORT).show();
+                            } else {
+                                recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                                preesenter = new WeatherPresenter(MainActivity.this);
+                                preesenter.getWeatherByCoord(latitude, longitude, appid);
+                                swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                                    @Override
+                                    public void onRefresh() {
+                                        preesenter.getWeatherByCoord(latitude, longitude, appid);
+                                    }
+                                });
+                            }
                         } else {
                             Log.w(TAG, "getLastLocation:exception", task.getException());
                             showSnackbar(getString(R.string.no_location_detected));
@@ -232,7 +234,13 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
                 });
                 return true;
             case R.id.location:
-                Toast.makeText(this, "This is user location", Toast.LENGTH_SHORT).show();
+                double lat = latitude;
+                double lon = longitude;
+
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                intent.putExtra("lat", lat);
+                intent.putExtra("lon", lon);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

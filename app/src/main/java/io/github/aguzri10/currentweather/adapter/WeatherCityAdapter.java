@@ -18,10 +18,11 @@ import io.github.aguzri10.currentweather.R;
 import io.github.aguzri10.currentweather.model.ResponseModel;
 import io.github.aguzri10.currentweather.model.Weather;
 
+import static io.github.aguzri10.currentweather.module.AppModule.URL_IMAGE;
+import static io.github.aguzri10.currentweather.module.AppModule.URL_IMAGE_EX;
+
 public class WeatherCityAdapter extends RecyclerView.Adapter<WeatherCityAdapter.ViewHolder> {
 
-    private static final String URL_IMAGE = "http://openweathermap.org/img/wn/";
-    private static final String URL_IMAGE_EX = "@2x.png";
     private Context context;
     private ResponseModel responseModel;
     private List<Weather> weathers;
@@ -51,7 +52,7 @@ public class WeatherCityAdapter extends RecyclerView.Adapter<WeatherCityAdapter.
 
         viewHolder.tvName.setText(responseModel.getName() + ",");
         viewHolder.tvCountry.setText(responseModel.getSys().getCountry());
-        viewHolder.tvWeatherDesc.setText(weather.getDescription());
+        viewHolder.tvWeatherDesc.setText(weather.getMain());
         viewHolder.tvMainTemp.setText(String.valueOf(responseModel.getMain().getTemp()) + " \u2103");
 
         double temp_min = responseModel.getMain().getTempMin();
